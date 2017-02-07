@@ -27,9 +27,9 @@ public class TransactionTest {
 
         UserDao dao = context.getBean("userDao", UserDao.class);
         User user = new User();
-        user.setUsername("test");
+        user.setUsername("customizeDemo");
         user.setNickname("test2");
-        user.setPassword("test");
+        user.setPassword("customizeDemo");
         // dao.addUser(user);
     }
 
@@ -40,7 +40,7 @@ public class TransactionTest {
             // throw new RuntimeException("删除时异常");
         }
         UserDao dao = context.getBean("userDao", UserDao.class);
-        // User user = dao.getByUsername("test");
+        // User user = dao.getByUsername("customizeDemo");
         // dao.deleteUser(user);
     }
 

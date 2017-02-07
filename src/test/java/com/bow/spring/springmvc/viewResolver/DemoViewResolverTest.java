@@ -1,4 +1,4 @@
-package com.bow.spring.springmvc;
+package com.bow.spring.springmvc.viewResolver;
 
 import org.junit.Test;
 import org.springframework.context.annotation.Bean;

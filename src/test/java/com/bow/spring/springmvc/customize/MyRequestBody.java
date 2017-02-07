@@ -1,4 +1,4 @@
-package com.bow.spring.springmvc;
+package com.bow.spring.springmvc.customize;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
@@ -8,11 +8,10 @@ import java.lang.annotation.Target;
 
 /**
  * @author vv
- * @since 2017/2/2.
+ * @since 2017/2/3.
  */
-@Target({ ElementType.TYPE, ElementType.METHOD })
+@Target(ElementType.PARAMETER)
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
-public @interface DemoResponseBody {
-    String type() default "json";
+public @interface MyRequestBody {
 }

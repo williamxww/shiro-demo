@@ -1,4 +1,4 @@
-package com.bow.spring.springmvc;
+package com.bow.spring.springmvc.customize;
 
 import org.springframework.web.bind.annotation.RequestMethod;
 

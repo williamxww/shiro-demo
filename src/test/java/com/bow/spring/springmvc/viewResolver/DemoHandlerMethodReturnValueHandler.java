@@ -1,5 +1,6 @@
-package com.bow.spring.springmvc;
+package com.bow.spring.springmvc.viewResolver;
 
+import com.bow.spring.springmvc.ViewName;
 import org.springframework.core.MethodParameter;
 import org.springframework.web.context.request.NativeWebRequest;
 import org.springframework.web.method.support.HandlerMethodReturnValueHandler;

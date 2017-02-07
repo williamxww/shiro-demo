@@ -1,5 +1,8 @@
-package com.bow.spring.aop;
+package com.bow.spring.aop.autoProxyCreator;
 
+import com.bow.spring.aop.AnnotationAspect;
+import com.bow.spring.aop.UserService;
+import com.bow.spring.aop.UserServiceImpl;
 import org.junit.Test;
 import org.springframework.aop.aspectj.annotation.AnnotationAwareAspectJAutoProxyCreator;
 import org.springframework.context.ApplicationContext;

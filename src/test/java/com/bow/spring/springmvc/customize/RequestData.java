@@ -1,4 +1,4 @@
-package com.bow.spring.springmvc;
+package com.bow.spring.springmvc.customize;
 
 import java.util.Map;
 

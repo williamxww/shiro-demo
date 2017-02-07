@@ -1,10 +1,15 @@
-package com.bow.spring.springmvc;
+package com.bow.spring.springmvc.viewResolver;
 
 import java.io.IOException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.bow.spring.springmvc.customize.RequestData;
+import com.bow.spring.springmvc.customize.ResponseData;
+import com.bow.spring.springmvc.ViewName;
+import com.bow.spring.springmvc.customize.MyRequestBody;
+import com.bow.spring.springmvc.customize.MyResponseBody;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,14 +34,5 @@ public class DemoController {
         ViewName viewName = new ViewName();
         viewName.setName("html");
         return viewName;
-    }
-
-    @RequestMapping("/customize")
-    @MyResponseBody
-    public ResponseData customize(@MyRequestBody RequestData requestData) {
-        System.out.println(requestData);
-        ResponseData responseData = new ResponseData();
-        responseData.setData(requestData.getData());
-        return responseData;
     }
 }

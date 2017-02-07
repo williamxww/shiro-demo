@@ -1,5 +1,8 @@
-package com.bow.spring.aop;
+package com.bow.spring.aop.autoProxyCreator;
 
+import com.bow.spring.aop.DemoMethodInterceptor;
+import com.bow.spring.aop.UserService;
+import com.bow.spring.aop.UserServiceImpl;
 import org.aopalliance.aop.Advice;
 import org.junit.Test;
 import org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator;

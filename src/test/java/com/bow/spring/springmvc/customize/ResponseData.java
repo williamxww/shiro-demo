@@ -1,4 +1,4 @@
-package com.bow.spring.springmvc;
+package com.bow.spring.springmvc.customize;
 
 import java.util.Map;
 
@@ -7,6 +7,7 @@ import java.util.Map;
  * @since 2017/2/3.
  */
 public class ResponseData {
+
     private Map<String, String> data;
 
     public Map<String, String> getData() {

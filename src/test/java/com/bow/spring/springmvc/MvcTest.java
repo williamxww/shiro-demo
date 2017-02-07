@@ -1,5 +1,6 @@
 package com.bow.spring.springmvc;
 
+import com.bow.spring.springmvc.viewResolver.DemoController;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;

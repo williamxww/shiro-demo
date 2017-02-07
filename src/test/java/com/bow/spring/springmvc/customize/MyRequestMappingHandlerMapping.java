@@ -1,4 +1,4 @@
-package com.bow.spring.springmvc;
+package com.bow.spring.springmvc.customize;
 
 import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.web.accept.ContentNegotiationManager;
@@ -16,8 +16,8 @@ import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandl
 import java.lang.reflect.Method;
 
 /**
- * http://www.jianshu.com/p/8a48dcc07fb6
- *
+ * 扩展MyController
+ * 
  * @author vv
  * @since 2017/2/3.
  */
