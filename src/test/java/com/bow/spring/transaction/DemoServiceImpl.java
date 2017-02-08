@@ -22,14 +22,14 @@ import org.springframework.transaction.support.DefaultTransactionDefinition;
  */
 
 @Service
-public class TransactionServiceTestImpl implements TransactionServiceTest {
+public class DemoServiceImpl implements DemoService {
 
     @Autowired
     private PlatformTransactionManager transactionManager;
 
     @Transactional(rollbackFor = Exception.class)
     public void testTransaction() {
-        TransactionTest dao = new TransactionTest();
+        DemoDao dao = new DemoDao();
         dao.add();
         System.out.println("-----------添加了----------------");
         dao.delete();
@@ -39,7 +39,7 @@ public class TransactionServiceTestImpl implements TransactionServiceTest {
         TransactionDefinition td = new DefaultTransactionDefinition();
         TransactionStatus status = transactionManager.getTransaction(td);
         try {
-            TransactionTest dao = new TransactionTest();
+            DemoDao dao = new DemoDao();
             dao.add();
             System.out.println("-----------添加了----------------");
             dao.delete();

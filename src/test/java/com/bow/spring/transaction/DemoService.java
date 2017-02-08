@@ -5,7 +5,7 @@ package com.bow.spring.transaction;
  * @date 2015年10月2日 上午10:00:43  
  */
 
-public interface TransactionServiceTest {
+public interface DemoService {
 
     public void testTransaction();
 
