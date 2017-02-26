@@ -31,8 +31,6 @@ public class UserRealm extends AuthorizingRealm {
     @Autowired
     private UserService userService;
 
-    @Autowired
-    private PermissionService permissionService;
 
     /**
      * 从数据库获取认证信息
@@ -65,21 +63,11 @@ public class UserRealm extends AuthorizingRealm {
      */
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
-        String username = (String) principals.getPrimaryPrincipal();
+        String username = (String)principals.getPrimaryPrincipal();
+
         SimpleAuthorizationInfo authorizationInfo = new SimpleAuthorizationInfo();
-
-        // 根据用户名找到duty 的code 设置为该用户的 角色
-        User user = userService.findByUsername(username);
-        Set<String> dutyCodes = new HashSet<String>();
-        authorizationInfo.setRoles(dutyCodes);
-
-        // 找到该用户多有的权限放到authorizationInfo
-        List<Permission> permissions = permissionService.getPermissions(user);
-        Set<String> permissionSet = new HashSet<String>();
-        for (Permission p : permissions) {
-            permissionSet.add(p.toString());
-        }
-        authorizationInfo.setStringPermissions(permissionSet);
+        authorizationInfo.setRoles(userService.findRoles(username));
+        authorizationInfo.setStringPermissions(userService.findPermissions(username));
         return authorizationInfo;
     }
 

@@ -20,12 +20,11 @@ public class Application {
         connector.setPort(8080);
         server.addConnector(connector);
 
-        // ServletContextHandler context = new
-        // ServletContextHandler(ServletContextHandler.SESSIONS);
-        WebAppContext webAppContext = new WebAppContext("webapp", "/shiro-demo");
-        // webAppContext.setContextPath("/shiro-demo");
-        webAppContext.setDescriptor("webapp/WEB-INF/web.xml");
-        webAppContext.setResourceBase("webapp");
+        WebAppContext webAppContext = new WebAppContext();
+        webAppContext.setContextPath("/");
+        webAppContext.setResourceBase("src/main/webapp");
+        // webAppContext.setDescriptor("webapp/WEB-INF/web.xml");
+
         webAppContext.setDisplayName("shiro-demo");
         webAppContext.setClassLoader(Thread.currentThread().getContextClassLoader());
         webAppContext.setConfigurationDiscovered(true);
@@ -38,6 +37,11 @@ public class Application {
         } catch (Exception e) {
 
         }
+    }
+
+    public static void main(String[] args) {
+        Application app = new Application();
+        app.start();
     }
 
 }

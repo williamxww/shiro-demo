@@ -36,7 +36,8 @@ public class SessionController {
                 session.setAttribute(Constants.SESSION_FORCE_LOGOUT_KEY, Boolean.TRUE);
             }
         } catch (Exception e) {
-            /* ignore */}
+
+        }
         redirectAttributes.addFlashAttribute("msg", "强制退出成功！");
         return "redirect:/sessions";
     }

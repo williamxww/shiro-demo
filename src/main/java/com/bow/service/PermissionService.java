@@ -16,7 +16,7 @@ import java.util.Set;
  * @author ViVi
  * @date 2015年7月2日 下午8:51:24
  */
-
+@Deprecated
 public interface PermissionService {
 
     List<Permission> getPermissions(User user);

@@ -7,7 +7,7 @@ import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 
 public final class SpringUtils implements BeanFactoryPostProcessor {
 
-    private static ConfigurableListableBeanFactory beanFactory; // Spring应用上下文环境
+    private static ConfigurableListableBeanFactory beanFactory;
 
     @Override
     public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException {

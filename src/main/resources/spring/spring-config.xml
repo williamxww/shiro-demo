@@ -13,7 +13,7 @@
     <context:property-placeholder location="classpath:resources.properties"/>
 
     <!-- 扫描注解Bean -->
-    <context:component-scan base-package="com.github.zhangkaitao.shiro.chapter21">
+    <context:component-scan base-package="com.bow">
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
 
@@ -22,7 +22,6 @@
 
 
     <!-- 数据源 -->
-    <!--see https://github.com/alibaba/druid/wiki/%E9%85%8D%E7%BD%AE_DruidDataSource%E5%8F%82%E8%80%83%E9%85%8D%E7%BD%AE-->
     <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
         <!-- 基本属性 url、user、password -->
         <property name="url" value="${connection.url}"/>
@@ -75,14 +74,16 @@
         </tx:attributes>
     </tx:advice>
 
+    <!-- 只对业务逻辑层实施事务
     <aop:config expose-proxy="true" proxy-target-class="true">
-        <!-- 只对业务逻辑层实施事务 -->
+
         <aop:pointcut id="txPointcut" expression="execution(* com.github.zhangkaitao.shiro.chapter16..service..*+.*(..))"/>
         <aop:advisor id="txAdvisor" advice-ref="txAdvice" pointcut-ref="txPointcut"/>
     </aop:config>
+    -->
 
-    <bean class="com.github.zhangkaitao.shiro.spring.SpringUtils"/>
 
-    <import resource="classpath:spring-config-cache.xml"/>
-    <import resource="classpath:spring-config-shiro.xml"/>
+    <bean class="com.bow.spring.SpringUtils"/>
+    <import resource="classpath:spring/spring-config-cache.xml"/>
+    <import resource="classpath:spring/spring-config-shiro.xml"/>
 </beans>

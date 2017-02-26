@@ -8,11 +8,7 @@ import java.io.ObjectOutputStream;
 import org.apache.shiro.codec.Base64;
 import org.apache.shiro.session.Session;
 
-/**
- * <p>User: Zhang Kaitao
- * <p>Date: 14-2-8
- * <p>Version: 1.0
- */
+
 public class SerializableUtils {
 
     public static String serialize(Session session) {

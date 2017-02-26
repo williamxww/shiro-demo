@@ -1,8 +1,9 @@
-drop table if exists sys_user;
-drop table if exists sys_organization;
-drop table if exists sys_resource;
-drop table if exists sys_role;
+drop database if exists `shiro`;
+create database `shiro` default character set utf8 collate utf8_general_ci;;
+use `shiro`;
 
+
+drop table if exists sys_user;
 create table sys_user (
   id bigint auto_increment,
   organization_id bigint,
@@ -16,6 +17,8 @@ create table sys_user (
 create unique index idx_sys_user_username on sys_user(username);
 create index idx_sys_user_organization_id on sys_user(organization_id);
 
+
+drop table if exists sys_organization;
 create table sys_organization (
   id bigint auto_increment,
   name varchar(100),
@@ -28,6 +31,7 @@ create index idx_sys_organization_parent_id on sys_organization(parent_id);
 create index idx_sys_organization_parent_ids on sys_organization(parent_ids);
 
 
+drop table if exists sys_resource;
 create table sys_resource (
   id bigint auto_increment,
   name varchar(100),
@@ -42,6 +46,8 @@ create table sys_resource (
 create index idx_sys_resource_parent_id on sys_resource(parent_id);
 create index idx_sys_resource_parent_ids on sys_resource(parent_ids);
 
+
+drop table if exists sys_role;
 create table sys_role (
   id bigint auto_increment,
   role varchar(100),
@@ -51,3 +57,11 @@ create table sys_role (
   constraint pk_sys_role primary key(id)
 ) charset=utf8 ENGINE=InnoDB;
 create index idx_sys_role_resource_ids on sys_role(resource_ids);
+
+
+drop table if exists sessions;
+create table sessions (
+  id varchar(200),
+  session varchar(2000),
+  constraint pk_sessions primary key(id)
+) charset=utf8 ENGINE=InnoDB;

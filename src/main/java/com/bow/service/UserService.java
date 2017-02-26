@@ -28,7 +28,7 @@ public interface UserService {
 
     User findByUsername(String username);
 
-    User findByUserId(Long userId);
+//    User findByUserId(Long userId);
 
     Set<String> findRoles(String username);
 

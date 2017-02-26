@@ -16,7 +16,7 @@ public interface OrganizationService {
 
     List<Organization> findAll();
 
-    Object findAllWithExclude(Organization excludeOraganization);
+    Object findAllWithExclude(Organization excludeOrganization);
 
     void move(Organization source, Organization target);
 }
