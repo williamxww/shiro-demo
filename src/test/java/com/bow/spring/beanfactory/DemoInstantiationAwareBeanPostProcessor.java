@@ -21,13 +21,10 @@ public class DemoInstantiationAwareBeanPostProcessor implements InstantiationAwa
     /**
      * 若此方法返回的结果不为null，则会中断后面bean对象的创建过程
      * 
-     * @param beanClass
-     *            beanClass
-     * @param beanName
-     *            beanName
+     * @param beanClass beanClass
+     * @param beanName beanName
      * @return Object
-     * @throws BeansException
-     *             e
+     * @throws BeansException e
      */
     @Override
     public Object postProcessBeforeInstantiation(Class<?> beanClass, String beanName) throws BeansException {
@@ -48,6 +45,16 @@ public class DemoInstantiationAwareBeanPostProcessor implements InstantiationAwa
         return pvs;
     }
 
+    /**
+     * 在下列情况前处理
+     * {@link org.springframework.beans.factory.InitializingBean}
+     * ,或是bean自身配置了init-method
+     * 
+     * @param bean
+     * @param beanName
+     * @return
+     * @throws BeansException
+     */
     @Override
     public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
         log("postProcessBeforeInitialization");
