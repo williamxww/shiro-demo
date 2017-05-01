@@ -6,7 +6,7 @@
 ">
 
 <!-- 这里给employee (Person类型) 注入的字符串  -->
-	<bean id="sample" class="spring.property.Company">
+	<bean id="sample" class="com.bow.spring.property.Company">
 	    <property name="employee" value="vv"/>
 	</bean>
 
@@ -18,7 +18,7 @@
 	    </property>
 	</bean>
 	 
-	<bean id="personPropertyEditorRegistrar" class="spring.property.PersonPropertyEditorRegistrar"/>
+	<bean id="personPropertyEditorRegistrar" class="com.bow.spring.property.PersonPropertyEditorRegistrar"/>
 
      
  </beans>

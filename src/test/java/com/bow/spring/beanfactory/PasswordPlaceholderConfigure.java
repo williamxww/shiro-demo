@@ -12,7 +12,8 @@ public class PasswordPlaceholderConfigure extends PropertyPlaceholderConfigurer 
     public String convertProperty(String propertyName, String propertyValue) {
         if ("password" == propertyName) {
             // 进行密码解码
+            System.out.println("decrypt password");
         }
-        return super.convertProperty(propertyName, "aaaa");
+        return super.convertProperty(propertyName, propertyValue);
     }
 }

@@ -1,5 +1,7 @@
 package com.bow.spring.beanfactory;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.InitializingBean;
 
 /**
@@ -8,11 +10,23 @@ import org.springframework.beans.factory.InitializingBean;
  */
 
 public class SimpleBean implements InitializingBean {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(SimpleBean.class);
+
     private String connectionString;
 
     private String password;
 
     private String username;
+
+    public SimpleBean() {
+
+    }
+
+    public SimpleBean(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
 
     public String getConnectionString() {
         return connectionString;
@@ -31,11 +45,12 @@ public class SimpleBean implements InitializingBean {
     }
 
     public void setPassword(String password) {
+        LOGGER.info("setPassword");
         this.password = password;
     }
 
     public void setUsername(String username) {
-        System.out.println("SimpleBean.setUsername");
+        LOGGER.info("setUsername");
         this.username = username;
     }
 
@@ -48,6 +63,8 @@ public class SimpleBean implements InitializingBean {
 
     @Override
     public void afterPropertiesSet() throws Exception {
-        System.out.println("SimpleBean.afterPropertiesSet");
+        LOGGER.info("afterPropertiesSet");
     }
+
+
 }

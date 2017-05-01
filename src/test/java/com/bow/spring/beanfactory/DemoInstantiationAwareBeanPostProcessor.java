@@ -1,22 +1,25 @@
 package com.bow.spring.beanfactory;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.PropertyValues;
+import org.springframework.beans.factory.InitializingBean;
+import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
+import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.beans.factory.config.InstantiationAwareBeanPostProcessor;
 
 import java.beans.PropertyDescriptor;
 
 /**
  * 测试InstantiationAwareBeanPostProcessor 在bean的实例化和初始化前后放置扩展点<br/>
+ * 触发顺序参照{@link BeanFactoryConfig}
  *
- * 
  * @author vv
  * @since 2017/2/1.
  */
 public class DemoInstantiationAwareBeanPostProcessor implements InstantiationAwareBeanPostProcessor {
-    private void log(String msg) {
-        System.out.println(msg);
-    }
+    private static final Logger LOGGER = LoggerFactory.getLogger(DemoInstantiationAwareBeanPostProcessor.class);
 
     /**
      * 若此方法返回的结果不为null，则会中断后面bean对象的创建过程
@@ -28,26 +31,25 @@ public class DemoInstantiationAwareBeanPostProcessor implements InstantiationAwa
      */
     @Override
     public Object postProcessBeforeInstantiation(Class<?> beanClass, String beanName) throws BeansException {
-        log("postProcessBeforeInstantiation");
+        LOGGER.info("postProcessBeforeInstantiation");
         return null;
     }
 
     @Override
     public boolean postProcessAfterInstantiation(Object bean, String beanName) throws BeansException {
-        log("postProcessAfterInstantiation");
+        LOGGER.info("postProcessAfterInstantiation");
         return true;
     }
 
     @Override
     public PropertyValues postProcessPropertyValues(PropertyValues pvs, PropertyDescriptor[] pds, Object bean,
             String beanName) throws BeansException {
-        log("postProcessPropertyValues");
+        LOGGER.info("postProcessPropertyValues");
         return pvs;
     }
 
     /**
-     * 在下列情况前处理
-     * {@link org.springframework.beans.factory.InitializingBean}
+     * 在下列情况前处理 {@link org.springframework.beans.factory.InitializingBean}
      * ,或是bean自身配置了init-method
      * 
      * @param bean
@@ -57,13 +59,13 @@ public class DemoInstantiationAwareBeanPostProcessor implements InstantiationAwa
      */
     @Override
     public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
-        log("postProcessBeforeInitialization");
+        LOGGER.info("postProcessBeforeInitialization");
         return bean;
     }
 
     @Override
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
-        log("postProcessAfterInitialization");
+        LOGGER.info("postProcessAfterInitialization");
         return bean;
     }
 }

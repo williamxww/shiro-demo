@@ -1,5 +1,7 @@
 package com.bow.spring.beanfactory;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.config.BeanPostProcessor;
@@ -13,15 +15,16 @@ import org.springframework.beans.factory.config.BeanPostProcessor;
  * @since 2017/2/1.
  */
 public class DemoBeanPostProcessor implements BeanPostProcessor {
+    private static final Logger LOGGER = LoggerFactory.getLogger(DemoBeanPostProcessor.class);
     @Override
     public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
-        System.out.println("postProcessBeforeInitialization");
+        LOGGER.info("postProcessBeforeInitialization");
         return bean;
     }
 
     @Override
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
-        System.out.println("postProcessAfterInitialization");
+        LOGGER.info("postProcessAfterInitialization");
         return bean;
     }
 }

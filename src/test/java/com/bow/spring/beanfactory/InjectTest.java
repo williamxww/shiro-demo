@@ -7,7 +7,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 
 /**
- * Test MyAutowired
+ * 自定义注解{@link MyAutowired}
+ * 
  * @author vv
  * @since 2017/2/8.
  */
@@ -32,12 +33,12 @@ public class InjectTest {
     }
 
     @Bean
-    public static MyAutowiredPostProcessor myAutowiredPostProcessor(){
+    public static MyAutowiredPostProcessor myAutowiredPostProcessor() {
         return new MyAutowiredPostProcessor();
     }
 
     @Test
-    public void test(){
+    public void test() {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(InjectTest.class);
         BeanClass beanClass = context.getBean(BeanClass.class);
         beanClass.print();
